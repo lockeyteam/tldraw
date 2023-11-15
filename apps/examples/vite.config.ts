@@ -27,6 +27,9 @@ export default defineConfig({
 	build: {
 		outDir: path.join(__dirname, 'dist'),
 		assetsInlineLimit: 0,
+	        rollupOptions: {
+		  external: ["@tldraw/tldraw/tldraw.css"],
+	  },
 	},
 	server: {
 		port: 5420,
@@ -38,11 +41,5 @@ export default defineConfig({
 	define: {
 		'process.env.TLDRAW_ENV': JSON.stringify(process.env.VERCEL_ENV ?? 'development'),
 	},
-	build: {
-	  rollupOptions: {
-	    external: ["@tldraw/tldraw/tldraw.css"],
-	  },
-	},
-})
 
 })
